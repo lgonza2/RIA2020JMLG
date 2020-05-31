@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel=StyleSheet href="index.css">
@@ -8,14 +9,7 @@
     <title>JMLG App</title>
 </head>
 <body>
-<!--Main Navigation-->
-<header>
 
-   <!--Main Navigation-->
-<header>
-
-  <!--Main Navigation-->
-<header>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">JMLG App</a>
@@ -40,13 +34,22 @@
           </ul>
           
         </div>
-      </nav>
+    </nav>
       <div>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Buscar... " aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
           </form>
       </div>
-    
+     
+
+      <!-- codigo de prueba para consumir api random de usuarios-->
+      <div id="contenido">
+          <button onclick="fetchUser()" >Generate User</button>
+          <p id="nombre"></p>
+      </div>
+      <!----------------------------------------------------------->
+      
 </body>
+<script src="funciones.js"></script>
 </html>
