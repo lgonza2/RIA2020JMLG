@@ -1,0 +1,13 @@
+.box {
+    width: 200px;
+  }
+  .minibox {
+    margin: 2%;  
+    width: 20%;
+  }
+  .width {
+    width: 100%;
+  }
+  .max {
+    max-width: 100%;
+  }
