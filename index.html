@@ -13,7 +13,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">JMLG App</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       
@@ -26,7 +26,7 @@
               <a class="nav-link" href="#">Peliculas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="C:\Users\Javi\Desktop\RIA\RIA2020JMLG\libros.html">Libros</a>
+                <a class="nav-link" href="./libros.html">Libros</a>
               </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Productos</a>
@@ -37,18 +37,24 @@
     </nav>
       <div>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Buscar... " aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+            <input style="margin: 2%;" class="form-control mr-sm-2" type="search" placeholder="Buscar... " aria-label="Search">
+            <button style="margin: 2%;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
           </form>
       </div>
      
+      <button style="margin: 2%;" onclick="fetchUser()" class="btn btn-primary">Generate User</button>
 
-      <!-- codigo de prueba para consumir api random de usuarios-->
-      <div id="contenido">
-          <button onclick="fetchUser()" >Generate User</button>
-          <p id="nombre"></p>
+
+      <div class="card" style="width: 18rem;margin: 2%;" id="contenido" hidden="true">
+        <img id="photo" src="" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 id="userName" class="card-title"></h5>
+          <p id="gender"></p>
+          <p id="phone"></p>
+          <p id="email"></p>
+        </div>
       </div>
-      <!----------------------------------------------------------->
+      
      
 </body>
 

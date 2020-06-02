@@ -4,6 +4,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title>Google Books Embedded Viewer API Example</title>
+    <input id="isbnNumber" hidden="true">
     <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
     <script type="text/javascript">
         google.books.load();
@@ -14,14 +15,14 @@
       google.books.load();
 
       function initialize() {
+
         var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
-      // viewer.load('ISBN:0738531367');
-    // var test= getParams(window.location.href);
-    // console.log(test);
-      //viewer.load('ISBN:9789876347877');
-     // viewer.load('9780976111146');
-    // viewer.load('9781291056006');
-    viewer.load('9780976111122');
+
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const isbnNumber = urlParams.get('isbnNumber')
+
+    viewer.load(isbnNumber);
     
 
       }

@@ -8,3 +8,9 @@ header,
 .view {
     height: 100%;
 }
+
+p{
+    margin-left: 2%;
+    font-size: 14px;
+}
+

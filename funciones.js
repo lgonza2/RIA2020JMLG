@@ -1,27 +1,35 @@
 
 function fetchUser(){fetch('https://randomuser.me/api/')
 .then((response) => {
-    return response.json();
+return response.json();
 }).then((response) => {
-    var test = response.results[0].name;
-    console.log(response);
-    document.getElementById('nombre').innerHTML = test.first + ' ' + test.last;
-    var genderCmp = document.getElementById('gender');
-    var contenido = document.getElementById('contenido');
     
-    if(!genderCmp){
-        console.log('entre al if');
-    var genderContainer = document.createElement("p");
-    genderContainer.id = "gender";
-    var gender = document.createTextNode('Gender:' +response.results[0].gender);
-    genderContainer.appendChild(gender);
-    contenido.appendChild(genderContainer);
-    }else{
-        var gender = document.createTextNode('Gender: ' +response.results[0].gender);
-        genderCmp.innerHTML = gender.textContent;
-    }
+    if(response.results.length > 0){
 
-})}
+        var result = response.results[0];
+        var userName = response.results[0].name;
+        var userFullName = userName.title + ' ' + userName.first + ' ' + userName.last;
+        var userPhotoUrl = result.picture.large;
+        var userGender = result.gender;
+        var userEmail = result.email;
+        
+        if(userGender == "male"){
+            userGender = "Male";
+        }else{
+            userGender = "Female";
+        }
 
-function showData(obj){
+        document.getElementById('photo').src = userPhotoUrl;
+        document.getElementById('userName').innerHTML = userFullName;
+        document.getElementById('phone').innerHTML = userEmail;
+        document.getElementById('gender').innerHTML = userGender;
+        document.getElementById('email').innerHTML = userEmail;
+
+        document.getElementById('contenido').hidden = false;
+
+        }else{
+        console.error('Error');
+        }
+    })
 }
+
