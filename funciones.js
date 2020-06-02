@@ -3,7 +3,7 @@ function fetchUser(){fetch('https://randomuser.me/api/')
 .then((response) => {
 return response.json();
 }).then((response) => {
-    
+    console.log(response);
     if(response.results.length > 0){
 
         var result = response.results[0];
@@ -12,6 +12,7 @@ return response.json();
         var userPhotoUrl = result.picture.large;
         var userGender = result.gender;
         var userEmail = result.email;
+        var userPhone = result.phone;
         
         if(userGender == "male"){
             userGender = "Male";
@@ -21,7 +22,7 @@ return response.json();
 
         document.getElementById('photo').src = userPhotoUrl;
         document.getElementById('userName').innerHTML = userFullName;
-        document.getElementById('phone').innerHTML = userEmail;
+        document.getElementById('phone').innerHTML = userPhone;
         document.getElementById('gender').innerHTML = userGender;
         document.getElementById('email').innerHTML = userEmail;
 
