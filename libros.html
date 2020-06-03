@@ -10,50 +10,95 @@
   <title>JMLG App</title>
 </head>
 <body>
-
+  
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">JMLG App</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="./index.html">Inicio<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Peliculas</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#">Libros</a>
-            </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#">Productos</a>
-            </li>
-        </ul>
-      </div>
-  </nav>
-    
+    <a class="navbar-brand" href="#">BookApp</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
   
-  <div style="width: 50%; height: 50%;"  >
-    <a title="Los Tejos" href="./libro.html?isbnNumber=9780976111122"><img  src="https://images-na.ssl-images-amazon.com/images/I/51tm2hj2zrL._SX302_BO1,204,203,200_.jpg" alt="Los Tejos" class="minibox" /></a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item active">
+          <a class="nav-link" href="./index.html">Inicio<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input id="search" class="form-control mr-sm-2" type="search" placeholder="Búsqueda..." aria-label="Search">
+        <button  class="btn btn-primary" onclick="buscarLibro()" >Buscar</button>
+      </form>
+    </div>
+  </nav>
+
+  <div>
+    <a name="libro1" title="A book about you" href="./libro.html?isbnNumber=9780976111122"><img name="libro" src="https://images-na.ssl-images-amazon.com/images/I/51tm2hj2zrL._SX302_BO1,204,203,200_.jpg" alt="A book about you" class="minibox imagenLibro" /></a>
+    </img>
+    <p name="libros" hidden="true">A book about you</p>
+    
+
+    <a id="libro2" title="Mind Yoga" href="./libro.html?isbnNumber=9781291056006"><img  src="https://images-na.ssl-images-amazon.com/images/I/51yl0mNXOuL._SX260_.jpg" alt="Mind Yoga" class="minibox imagenLibro" /></a>
+    </img>
+    <p name="libros" hidden="true">Mind Yoga</p>
+
+    <a name="libro3" title="Mental Chemistry" href="./libro.html?isbnNumber=9780976111146"><img  src="https://imgv2-2-f.scribdassets.com/img/document/26265003/original/69c11ed8f1/1585977193?v=1" alt="Mental Chemistry" class="minibox imagenLibro" /></a>
+    </img>
+    <p name="libros" hidden="true">Mental Chemistry</p>
+
+    <!--Juegos-->
+    <a name="libro" title="Pensar como rico" href="./libro.html?isbnNumber=9789876347877"><img  src="https://http2.mlstatic.com/pensar-como-rico-para-hacerse-rico-roldan-gonzalez-D_NQ_NP_645801-MLA26166034980_102017-F.jpg" alt="Pensar como rico" class="minibox imagenLibro" /></a>
     </img>
 
-    <a title="Mind Yoga" href="./libro.html?isbnNumber=9781291056006"><img  src="https://images-na.ssl-images-amazon.com/images/I/51yl0mNXOuL._SX260_.jpg" alt="Mind Yoga" class="minibox" /></a>
+    <a id="libro" title="200 JUEGOS Y DINÁMICAS" href="./libro.html?isbnNumber=9586071758"><img  src="https://books.google.com.uy/books/content?id=Ry_ZzLe8Rk4C&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE708pMlCPL4hdDOvD8EynIPPatMXP_8Rj6Vi1-x3E3MBzMB7ayGjeEgYaa0kmCDcyO9iTMfSQ95NNi_rlELKavlBYlzweqx2uCIc5oraeKjcya-dn6r5QUn732kKjh4-l40d9rzp" alt="200 JUEGOS Y DINÁMICAS" class="minibox imagenLibro" /></a>
     </img>
 
-    <a title="Mental Chemistry" href="./libro.html?isbnNumber=9780976111146"><img  src="https://imgv2-2-f.scribdassets.com/img/document/26265003/original/69c11ed8f1/1585977193?v=1" alt="Mental Chemistry" class="minibox" /></a>
+    <a id="libro" title="Juegos de expresión oral y escrita" href="./libro.html?isbnNumber=8478275797"><img  src="https://books.google.com.uy/books/content?id=b4c0diMpJLkC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE71ivvnO3VEJBnW36pXJvRE1tIcGf7C9m8dIA5KAnq2L9JbUuje1fxbtE71wCkdHgV1OLsjE1L6YBdi-I17rthk831RX42fsxDkoHPq5mUmR4m5Vt_pgdDmvgmtFIINQasFhuSk7" alt="Juegos de expresión oral y escrita" class="minibox imagenLibro" /></a>
     </img>
 
-    <a title="Pensar como rico" href="./libro.html?isbnNumber=9789876347877"><img  src="https://http2.mlstatic.com/pensar-como-rico-para-hacerse-rico-roldan-gonzalez-D_NQ_NP_645801-MLA26166034980_102017-F.jpg" alt="Pensar como rico" class="minibox" /></a>
+    <a id="libro" title="Los juegos en la educación física de los 6 a los 12 años" href="./libro.html?isbnNumber=8487330851"><img  src="https://books.google.com.uy/books/content?id=KGr3EtFS1NoC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE73DBBrOsLJFRrFaeYv_4ZvaZVI8TITTUSkjIGDlC0D0SjVi4gyJ5pagypq-9pkrl4Fi0W31RYnvkbZBx_Zl_V5KkpiZYR7kONBMFg3m-eGMgVTClS7hV8o0VzA-3QWmAzvPzFpb" alt="Los juegos en la educación física de los 6 a los 12 años" class="minibox imagenLibro" /></a>
     </img>
+
+    <a id="libro" title="JUEGOS COOPERATIVOS Y EDUCACIÓN FÍSICA" href="./libro.html?isbnNumber=8480194332"><img  src="https://books.google.com.uy/books/content?id=fy_qy1n84H8C&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72GDueDdcvtsbzn6ud8i_8o02tQRp6SSv-eM-m95pqFHBnNtwmkD5TybIVZWWXJDqJGpBZam_OInonVFk9GBksKLjIGH-l08HHsnURddLksqbhR37AkAu8E60g_H7RZO60s1s-5" alt="JUEGOS COOPERATIVOS Y EDUCACIÓN FÍSICA" class="minibox imagenLibro" /></a>
+    </img>
+
+    <a id="libro" title="MIL 13 EJERCICIOS Y JUEGOS APLICADOS AL B-M (2 VOL.)" href="./libro.html?isbnNumber=8486475910"><img  src="https://books.google.com.uy/books/content?id=zc6ytjwWL1wC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72OSSnhnrlN5UW-kjSuhTRk6ZKwBXppNsbM6DroMcenp_dZ92h-oPCfmBqv5TfnbQz56UAlO-9Y87KRwfjcK2BtQ9oJ62PRTcrM97Y1xBPCzyh3lFWYbnaZ7R4Q0Wkwk3--vIm9" alt="MIL 13 EJERCICIOS Y JUEGOS APLICADOS AL B-M (2 VOL.)" class="minibox imagenLibro" /></a>
+    </img>
+
+    <!--Juegos-->
+
+    <!--Cocina-->
+    <a id="libro" title="La tradicional cocina mexicana y sus mejores recetas" href="./libro.html?isbnNumber=9789683802033"><img  src="https://books.google.com.uy/books/content?id=9iVslfes5FkC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE73bjo9Agcu_4BdqIR2e1_0GuE5ZparSFPQvbhbcRdUqenWElwygxJmZYhMkGoj_N9dknol4PitPpuK-PN9PFsZ0kesloMiOuH0JMEJCPRLGCUg2d_JbtUYtnDpftuhFlWFmhElX" alt="La tradicional cocina mexicana y sus mejores recetas" class="minibox imagenLibro" /></a>
+    </img>
+
+    <a id="libro" title="Cocina prehispánica mexicana" href="./libro.html?isbnNumber=9789683802583"><img  src="https://books.google.com.uy/books/content?id=EJuKSkd5K94C&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE71wNFk08-aQsC1qHU2CSWeIMqgzObwbyWZYGgi6lROCEFLupbxYON0t2wo_rvO4TX97HVErAQApdVHtRyHptfyqawOxNFIaWdiselHWX9bK4Dtt9_d7FzkhOjAS5BUyjXU4Ds5z" alt="Cocina prehispánica mexicana" class="minibox imagenLibro" /></a>
+    </img>
+
+    <a  id="libro" title="Preelaboracion y Conservacion de Alimentos" href="./libro.html?isbnNumber=9788446031352"><img  src="https://books.google.com.uy/books/content?id=APYNh0GPrY4C&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE71Vhj4HIF85pjNJM35NJcEvEDa2t5tbpy1gjomjDRJX8tVSLxfnAa0fQwgmwTJKTpiOXPWsw8ulS9IeLx_F1Q5wJhTvxA4APm66LU-JViAkpw0qmTObUT7mZjzgoZL7wpCaiZTc" alt="Preelaboracion y Conservacion de Alimentos" class="minibox imagenLibro" /></a>
+    </img>
+    <!--Cocina-->
+
+    <!--Deporte-->
+    <a id="libro" title="Deportes individuales" href="./libro.html?isbnNumber=9788495114013"><img  src="https://books.google.com.uy/books/content?id=r40u1QAG-jwC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72akpXYl8JM3YXdJv2w4-MjYiRRxA09R_ataKS0tY2rpvYCVowjTcsBZFmx9eXRAKJOCCPcYo5xZyycw2XtykpDvF0L8Zc8JofC1moA3ORqW-dCqH5906jVEO5eG4bFHM9ldhzi" alt="Deportes individuales" class="minibox imagenLibro" /></a>
+    </img>
+
+    <a id="libro" title="La iniciación a los deportes desde su estructura y dinámica" href="./libro.html?isbnNumber=9788495114518"><img  src="https://books.google.com.uy/books/content?id=3ahOm_pB0xYC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE71IJ1uvj9QzpC4fybot1YdsSYnkc1KUKfT_AfC38nEZqlLUqrw96pRqv4PbnaUJGLxUGfiIWaY9Vlotl6aJDAgng07uLm5zYx4R2sR0SYq-fbTanV1Ilv1F5nIH-mffH5J7disC" alt="La iniciación a los deportes desde su estructura y dinámica" class="minibox imagenLibro" /></a>
+    </img>
+
+    <a id="libro" title="La animación deportiva, el juego y los deportes alternativos" href="./libro.html?isbnNumber=9788497290487"><img  src="https://books.google.com.uy/books/content?id=MDvwNPWLaO8C&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE73bIiz2J1b8q1MaZN9uZiJj9Wlqv0JVOIiOmXlIO4c2lJp3i3pLZAi9xT6MakRwydiCEvD7pG3095xFozB7zT-JXp3luZE3oF9RgVLAkpAghgYTn9K8-R1efXXjtJmdeCLNthqo" alt="La animación deportiva, el juego y los deportes alternativos" class="minibox imagenLibro" /></a>
+    </img>
+    <!--Deporte-->
+
+    <!--Astronomia-->
+    <a id="libro" title="Diccionario de astronomía" href="./libro.html?isbnNumber=9788489784703"><img  src="https://books.google.com.uy/books/content?id=YEUZI8MWARQC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72xRPW4E7g_tAXAd_qzQMn4xlLODiXcjEkr6CjMWAXEyneF35ZhBL4LzBz_K3542Ij4jawnNQtPQ3Q0GZudf0dK1h856fFOgtOVAySJfpzPgjaNCzAzGys5APYc6UbnSr654Mzk" alt="Diccionario de astronomía" class="minibox imagenLibro" /></a>
+    </img>
+    
+    <!--Astronomia-->
 
   </div>
 
     
 </body>
 
-<script src="funciones.js"></script>
+<script src="libros.js"></script>
 </html>
