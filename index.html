@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>BookApp</title>
 </head>
-<body>
+<body style="background-color: #666699;">
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">BookApp</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -27,19 +27,10 @@
           <a class="nav-link" href="./libros.html">Libros</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Búsqueda..." aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-      </form>
+      <input id="search" class="form-control" style="width: 20%;" value="" type="search" placeholder="Búsqueda..." aria-label="Búsqueda...">
+        <button  class="btn btn-primary" onclick="buscarLibro(document.getElementById('search').value)" >Buscar</button>
     </div>
   </nav>
-    
-      <div>
-        <form class="form-inline my-2 my-lg-0">
-            <input style="margin: 2%;" class="form-control mr-sm-2" type="search" placeholder="Buscar... " aria-label="Search">
-            <button style="margin: 2%;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-          </form>
-      </div>
      
       <button style="margin: 2%;" onclick="fetchUser()" class="btn btn-primary">Generate User</button>
 
