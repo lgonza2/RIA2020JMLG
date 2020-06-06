@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel=StyleSheet href="index.css">
+  <link rel=StyleSheet href="libros.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <title>JMLG App</title>
+</head>
+<body style="background-color: #666699;">
+  
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+    <a class="navbar-brand" href="#">BookApp</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item active">
+          <a class="nav-link" href="./index.html">Inicio<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categorias
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Astronomia</a>
+            <a class="dropdown-item" href="#">Biologia</a>
+            <a class="dropdown-item" href="#">Cocina</a>
+            <a class="dropdown-item" href="#">Deporte</a>
+            <a class="dropdown-item" href="#">Juegos</a>
+            <a class="dropdown-item" href="#">Medicina</a>
+            <a class="dropdown-item" href="#">Musica</a>
+            <a class="dropdown-item" href="#">Varios</a>
+        </li>
+      </ul>
+        <input id="search" class="form-control" style="width: 20%;" value="" onkeyup ="buscarLibro(document.getElementById('search').value)" type="search" placeholder="Búsqueda..." aria-label="Búsqueda...">
+        <button type="button" class="btn btn-secondary" onclick="buscarLibro(document.getElementById('search').value)" >Buscar</button>
+    </div>
+  </nav>
+    
+  <!--Libreria-->
+  <div style="margin: 1%;">
+    <div style="display: flex;margin: 1%;">
+    <h5 style="padding-top: 1%;width:30%;" id="bookQuantityTitle" style="font-family: Arial, Helvetica, sans-serif;"></h5>
+    <button id="borrarFiltro" hidden="true" style="margin-left: 1%;" type="button" onclick="showAllBooks()" class="btn btn-dark">Borrar filtro</button>
+    </div>
+
+<!--Biologia-->
+<a name="libro" title="Biología" href="./libro.html?isbnNumber=9788479039981"><img  src="https://books.google.com.uy/books/content?id=QcU0yde9PtkC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE71QtR6ZLfkIxCCmI4i3dwCzGzRm8dVikBQhNH-lg0lqv3nZp5iYqyPuf-FxMOvx56ADkGtSOZETi2F_L9GuH9Xc026tvrPp4_73I6uNz_HT4m_L5gaFC3U79KteOwEj_mcnbgcc" alt="Biología" class="minibox imagenLibro" /></a>
+</img>
+
+
+  </div>
+
+    
+</body>
+<script>
+  function init(){
+  var bookQuantity = document.getElementsByName("libro").length;
+  document.getElementById('bookQuantityTitle').innerHTML = 'Mostrando '+  bookQuantity + ' de ' + bookQuantity + ' libros.'
+}
+init();
+
+
+fetch('https://www.etnassoft.com/api/v1/get/?category=libros_programacion&criteria=most_viewed')
+    .then((response) => {
+    return response.json();
+    }).then((response) => {
+        console.log(JSON.stringify(response));
+
+     var libros = [];
+        var json = JSON.stringify(response);
+     for(let i in json){
+         console.log(json[i].ID);
+     }
+  
+});
+</script>
+<script src="libros.js"></script>
+</html>

@@ -1,11 +1,7 @@
 .box {
     width: 200px;
   }
-  .minibox {
-    margin: 2%;  
-    width: 10%;
-    height: 40%;
-  }
+  
   .width {
     width: 100%;
   }
@@ -13,9 +9,4 @@
     max-width: 100%;
   }
 
-  .imagenLibro {
-    
-    border: 1px solid black;
-    box-shadow: 5px 5px black;
-    
-  }
+  
