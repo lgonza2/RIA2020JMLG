@@ -68,7 +68,8 @@ function getLibrosFromCategory(categoryName){
         currentCategory = categoryName;
         resetView();
         showSpinner();
-        var search = 'https://www.etnassoft.com/api/v1/get/?category=' + categoryName;
+        var search = 'https://www.etnassoft.com/api/v1/get/?category=' + categoryName + '&num_items=50';
+        var categoryTitle = fixCategoryName(categoryName);
         fetch(search)
         .then((response) => {
             return response.json();
@@ -76,14 +77,15 @@ function getLibrosFromCategory(categoryName){
                 resetView();
                 currentBooks = [];
                 document.getElementById('orderFilter').hidden = false;
-                mainTitle.innerHTML = "Categoria " + MaysPrimera(categoryName.toLowerCase());
+                mainTitle.innerHTML = "Categoria " + MaysPrimera(categoryTitle.toLowerCase());
                 var json = response;
                 for(let i in json){
                     var nodo = createBookNode(json[i].title, json[i].url_details,json[i].cover);
                     bookContainer.appendChild(nodo);
+                    var ancla = document.createElement('a');
                     insertBook(json[i]);
                 }
-                //console.log(currentBooks);
+                getCurrentAuthors();
         });
     }
 }
@@ -103,6 +105,7 @@ function changeToggleLabel(){
 }
 
 function resetView(){
+
      while(bookContainer.hasChildNodes()){
          var firstNode = bookContainer.firstChild;
          bookContainer.removeChild(firstNode);
@@ -138,8 +141,8 @@ function insertBook(bookData){
     book.pages = bookData.pages;
     book.url = bookData.url_details;
     book.cover = bookData.cover;
+    book.language = bookData.language;
     currentBooks.push(book);
-
 }
 
 function orderBooks(){
@@ -207,4 +210,54 @@ function insertBookNodes(json, property, order){
                 bookContainer.appendChild(node);
             }
 }
+
+function enableFilter(checked){
+    if(checked){
+        document.getElementById('languageFilter').disabled = false;
+        document.getElementById('authorFilter').disabled = false;
+    }else{
+        document.getElementById('languageFilter').disabled = true;
+        document.getElementById('authorFilter').disabled = true;
+    }
+}
+
+function filterBooksByLanguage(language){
+
+
+    
+}
+
+function getCurrentAuthors(){
+    var currentAuthors = new Set();
+    for(var i in currentBooks){
+        currentAuthors.add(currentBooks[i].author);
+        console.log(currentBooks[i].author);
+    }
+}
+
+function fixCategoryName(categoryName){
+    console.log(categoryName);
+    if(categoryName == "Libros_aspecotos_legales"){
+        categoryName = "Aspectos legales";
+    }else if(categoryName == "Bases_de_datos"){
+        categoryName = "Bases de datos";
+    }else if(categoryName == "Control_de_versiones"){
+        categoryName = "Control de versiones";
+    }else if(categoryName == "Desarrollo_web"){
+        categoryName = "Desarrollo Web";
+    }else if(categoryName == "Bases_de_datos"){
+        categoryName = "Bases de datos";
+    }else if(categoryName == "Bases_de_datos"){
+        categoryName = "Bases de datos";
+    }else if(categoryName == "Bases_de_datos"){
+        categoryName = "Bases de datos";
+    }else if(categoryName == "Bases_de_datos"){
+        categoryName = "Bases de datos";
+    }else if(categoryName == "Bases_de_datos"){
+        categoryName = "Bases de datos";
+    }
+    return categoryName;
+}
+
+
 

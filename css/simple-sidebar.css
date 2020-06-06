@@ -61,3 +61,17 @@ body {
   box-shadow: 5px 5px black;
   
 }
+
+#rightThing {
+  width: 50%;
+}
+
+#leftThing {
+  width: 50%;
+}
+
+#orderFilter {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}

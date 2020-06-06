@@ -18,7 +18,7 @@
 
 </head>
 
-<body style="background-color: #666699;">
+<body style="background-color: #8080ff;">
 
   <div class="d-flex" id="wrapper">
 
@@ -80,10 +80,11 @@
         <!---->
         
         <div id="orderFilter" hidden="true" class="container border-top border-bottom">
-          <h5 class="mt-4">Ordenar por</h5>
+          <div id="leftThing" >
+          <h5 class="mt-2">Ordenar por</h5>
           <div class="row" style="padding: 1%;">
-            <div class="col-sm-3">
-              <select id="orderFilterValue" class="form-control" onchange="orderBooks()">
+            <div class="col-sm-6">
+              <select id="orderFilterValue" class="form-control"  onchange="orderBooks()">
                 <option value="Titulo" >Título</option>
                 <option value="Autor" >Nombre de Autor</option>
                 <option value="Paginas" >Cantidad de paginas</option>
@@ -98,7 +99,42 @@
               </select>
             </div>
           </div>
+          <div class="row" style="margin-left:1%;padding: 3%;">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" onclick="" class="custom-control-input" id="detailedList">
+              <label class="custom-control-label" for="detailedList"><h5 class="mt-1">Ver lista detallada</h5></label>
+            </div>
+        </div>
+          </div>
+
+           <div id="rightThing">
+            <!-- Default unchecked -->
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" onclick="enableFilter(this.checked)" class="custom-control-input" id="defaultUnchecked">
+              <label class="custom-control-label" for="defaultUnchecked"><h5 class="mt-1">Filtrar</h5></label>
+            </div>
+            <div class="row" style="padding: 1%;">
+              <div class="col-sm-6">
+                <label for="laguageFilter" class="control-label">Idioma</label>
+                <select disabled="true" onchange="filterBooksByLanguage(this.value)" label aria-label="Idioma" id="languageFilter" class="form-control"  onchange="">
+                  <option value="" ></option>
+                  <option value="Español" >Español</option>
+                  <option value="Ingles" >Ingles</option>
+                </select>
+              </div>
+            </div>
+            <div class="row" style="padding: 1%;">
+              <div class="col-sm-6">
+                <label for="laguageFilter" class="control-label">Autor</label>
+                <select disabled="true" onchange="test()" label aria-label="Idioma" id="authorFilter" class="form-control"  onchange="">
+                  <option value="" ></option>
+                  <option value="Español" >Español</option>
+                  <option value="Ingles" >Ingles</option>
+                </select>
+              </div>
+            </div>
           
+           </div>
         </div>
         <!---->
         <!--Contenedor de libros-->
@@ -135,3 +171,5 @@
 </body>
 
 </html>
+
+
