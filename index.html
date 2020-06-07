@@ -2,13 +2,14 @@
 <html lang="en">
 
 <head>
-
+  	
+  <link  rel="icon"   href="logo.png" type="image/png" />
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Simple Sidebar - Start Bootstrap Template</title>
+  <title>BookApp</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -18,17 +19,17 @@
 
 </head>
 
-<body style="background-color: #8080ff;">
+<body style="background-color: #ff9966;">
 
   <div class="d-flex" id="wrapper">
 
     <!-- Sidebar -->
     <div class="border-right bg-dark" id="sidebar-wrapper">
-      <div class="sidebar-heading text-light">BookApp</div>
+      <div class="sidebar-heading text-light"><img  src="logo.png" style="width:80%;margin-left: 9%;"></div></img>
       <div class="list-group list-group-flush">
         <a href="./index.html" class="list-group-item list-group-item-action bg-dark text-light border-bottom border-top">Inicio</a>
         <a href="#" class="list-group-item list-group-item-action bg-dark text-light border-bottom border-top">Busqueda avanzada</a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light border-bottom border-top">Listas Destadas</a>
+        <a href="#" class="list-group-item list-group-item-action bg-dark text-light border-bottom border-top">Listas Destacadas</a>
         
       </div>
     </div>
@@ -49,9 +50,6 @@
             
             <li class="nav-item active">
               <a class="nav-link" href="./index.html">Inicio<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Libros</a>
             </li>
             <li class="nav-item dropdown" style="margin-right: 2%;">
               <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button" onclick="getCategories()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -76,7 +74,7 @@
       </nav>
 
       <div class="container-fluid" >
-        <h1 id="mainTitle" class="mt-4">Todos los libros que buscas a tu alcance</h1>
+        <h1 id="mainTitle" class="mt-4" style="text-align: center;">Todos los libro a tu alcance</h1>
         <!---->
         
         <div id="orderFilter" hidden="true" class="container border-top border-bottom">
@@ -84,18 +82,18 @@
           <h5 class="mt-2">Ordenar por</h5>
           <div class="row" style="padding: 1%;">
             <div class="col-sm-6">
-              <select id="orderFilterValue" class="form-control"  onchange="orderBooks()">
-                <option value="Titulo" >Título</option>
-                <option value="Autor" >Nombre de Autor</option>
-                <option value="Paginas" >Cantidad de paginas</option>
+              <select title="Ordena los libros por el atributo seleccionado" id="orderFilterValue" class="form-control"  onchange="orderBooks()">
+                <option value="title" >Título</option>
+                <option value="author" >Nombre de Autor</option>
+                <option value="pages" >Cantidad de paginas</option>
               </select>
             </div>
           </div>
           <div class="row" style="padding: 1%;">
-            <div class="col-sm-3">
+            <div class="col-sm-6">
               <select id="orderType" class="form-control" onchange="orderBooks()" >
-                <option value="ASC" >Asc</option>
-                <option value="DESC">Desc</option>
+                <option value="asc" >Ascendente</option>
+                <option value="desc">Descendente</option>
               </select>
             </div>
           </div>
@@ -116,20 +114,18 @@
             <div class="row" style="padding: 1%;">
               <div class="col-sm-6">
                 <label for="laguageFilter" class="control-label">Idioma</label>
-                <select disabled="true" onchange="filterBooksByLanguage(this.value)" label aria-label="Idioma" id="languageFilter" class="form-control"  onchange="">
-                  <option value="" ></option>
-                  <option value="Español" >Español</option>
-                  <option value="Ingles" >Ingles</option>
+                <select title="Muestra solo los libros del idioma seleccionado" disabled="true" onchange="filterBooksByLanguage(this.value)" label aria-label="Idioma" id="languageFilter" class="form-control"  onchange="">
+                  <option value="ninguno" ></option>
+                  <option value="spanish" >Español</option>
+                  <option value="english" >Ingles</option>
                 </select>
               </div>
             </div>
             <div class="row" style="padding: 1%;">
               <div class="col-sm-6">
                 <label for="laguageFilter" class="control-label">Autor</label>
-                <select disabled="true" onchange="test()" label aria-label="Idioma" id="authorFilter" class="form-control"  onchange="">
+                <select title="Muestra solo los libros del autor seleccionado" disabled="true" onchange="filterBooksByAuthor(this.value)" label aria-label="Idioma" id="authorFilter" class="form-control"  onchange="">
                   <option value="" ></option>
-                  <option value="Español" >Español</option>
-                  <option value="Ingles" >Ingles</option>
                 </select>
               </div>
             </div>
@@ -139,7 +135,7 @@
         <!---->
         <!--Contenedor de libros-->
         <div style="margin: 1%;">
-          <div id="bookContainer" style="margin: 1%;">
+          <div id="bookContainer"  style="margin: 1%;">
 
 
           </div>
@@ -152,7 +148,27 @@
 
   </div>
   <!-- /#wrapper -->
-
+  <div class="footer-bottom" style="background: white">
+    <div class="footerContainer" style="margin-left: 2%;">
+        <div class="custom-block f-right" >
+          <img src="https://www.bookshop.com.uy/media/pagos/oca.png" style="height: 25px;margin-right: 5px;"> 
+          <img src="https://www.bookshop.com.uy/media/pagos/visa.png" style="height: 24px;margin-right: 5px;"> 
+          <img src="https://www.bookshop.com.uy/media/pagos/visa.png" style="height: 31px;margin-right: 5px;">
+          <img src="https://www.bookshop.com.uy/media/pagos/cabal.png" style="height: 36px;margin-right: 5px;">
+          <img src="https://www.bookshop.com.uy/media/pagos/hsbc.png" style="height: 37px;margin-right: 5px;">
+          <img src="https://www.bookshop.com.uy/media/pagos/ebrou.png" style="height: 32px;margin-right: 5px;"> 
+          <img src="https://www.bookshop.com.uy/media/pagos/abitab.png" style="height: 37px;"> 
+        </div>               
+        <style type="text/css">
+          .footer-bottom .footerContainer:before {
+          position: absolute;
+          bottom: 0;
+          display: none;
+          }
+        </style>
+        <address style="color: #4d4d4d">© 2020 Bookapp. Todos los derechos reservados.</address>
+      </div>
+  </div>
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
