@@ -9,6 +9,8 @@ let orderType = document.getElementById('orderType');
 let languageFilter =  document.getElementById('languageFilter');
 let authorFilter =  document.getElementById('authorFilter');
 let currentAuthors;
+
+
 function fetchUser(){fetch('https://randomuser.me/api/')
 .then((response) => {
 return response.json();
@@ -69,9 +71,11 @@ function getCategories(){
 
 //Funcion para llamar la API y retornar los libros de una categoria dada
 function getLibrosFromCategory(categoryName){
+    console.log(categoryName);
     if(categoryName != currentCategory){
         currentCategory = categoryName;
         resetView();
+        document.getElementById('indice').hidden = true;
         document.getElementById('orderFilter').hidden = true;
         showSpinner();
         var search = 'https://www.etnassoft.com/api/v1/get/?category=' + categoryName + '&num_items=50';
@@ -113,7 +117,6 @@ function changeToggleLabel(){
 
 //Funcion para borrar los libros actuales al cambiar por otros
 function resetView(){
-
      while(bookContainer.hasChildNodes()){
          var firstNode = bookContainer.firstChild;
          bookContainer.removeChild(firstNode);
@@ -158,7 +161,7 @@ function insertBook(bookData){
 function orderBooks(){
     showSpinner();
     if(auxBooks.length == 0){
-        insertBookNodes(books);
+        insertBookNodes(currentBooks);
     }else{
         insertBookNodes(auxBooks);
     }
@@ -309,6 +312,48 @@ function fixCategoryName(categoryName){
     }
     return categoryName;
 }
+
+
+function subrayar(letra){
+    
+    var contenido = document.getElementById(letra).innerHTML;
+    if(contenido.includes('<u>')){
+        document.getElementById(letra).innerHTML = letra;
+    }else{
+        document.getElementById(letra).innerHTML = "<u>"+letra+"</u>";
+    }
+
+}
+
+function getLibrosFromIndex(index){
+    console.log(index);
+    resetView();
+    showSpinner();
+    var indexButtons = document.getElementsByName('indexButton');
+    for ( var i in indexButtons){
+        indexButtons[i].disabled = true;
+    }
+    document.getElementById(index).disabled = false;
+   var query = 'https://www.etnassoft.com/api/v1/get/?book_title_index=' + index.toLowerCase() + '&num_items=25' ;
+    fetch(query)
+    .then((response) => {
+    return response.json();
+    }).then((response) => {
+        resetView();
+        document.getElementById('indice').hidden = false;
+        currentBooks = [];
+                for(let i in response){
+                    insertBook(response[i]);
+                }
+                insertBookNodes(currentBooks);
+                for ( var i in indexButtons){
+                    indexButtons[i].disabled = false;
+                }
+    });
+}
+
+
+
 
 
 

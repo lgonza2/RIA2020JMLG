@@ -29,7 +29,7 @@
       <div class="list-group list-group-flush">
         <a href="./index.html" class="list-group-item list-group-item-action bg-dark text-light border-bottom border-top">Inicio</a>
         <a href="#" class="list-group-item list-group-item-action bg-dark text-light border-bottom border-top">Busqueda avanzada</a>
-        <a href="./listasDestacadas.html"  class="list-group-item list-group-item-action bg-dark text-light border-bottom border-top">Libros mas leidos</a>
+        <a href="./listasDestacadas.html"  class="list-group-item list-group-item-action bg-dark text-light border-bottom border-top">Top 10 mas leidos</a>
         
       </div>
     </div>
@@ -130,6 +130,60 @@
            </div>
         </div>
         <!---->
+        <div id="indice" class="container" style="display: flex;padding-left:20%">
+          <button name="indexButton" id="A" onclick="getLibrosFromIndex(this.id)"  class="link">A</button>
+          <div >|</div>
+          <button name="indexButton" id="B" onclick="getLibrosFromIndex(this.id)" class="link">B</u></button>
+          <div >|</div>
+          <button name="indexButton"id="C" onclick="getLibrosFromIndex(this.id)"  class="link">C</button>
+          <div >|</div>
+          <button name="indexButton" id="D" onclick="getLibrosFromIndex(this.id)"  class="link">D</button>
+          <div >|</div>
+          <button name="indexButton" id="E" onclick="getLibrosFromIndex(this.id)"  class="link">E</button>
+          <div >|</div>
+          <button name="indexButton" id="F" onclick="getLibrosFromIndex(this.id)"  class="link">F</button>
+          <div >|</div>
+          <button name="indexButton" id="G" onclick="getLibrosFromIndex(this.id)"  class="link">G</button>
+          <div >|</div>
+          <button name="indexButton" id="H" onclick="getLibrosFromIndex(this.id)"  class="link">H</button>
+          <div >|</div>
+          <button name="indexButton" id="I" onclick="getLibrosFromIndex(this.id)"  class="link">I</button>
+          <div >|</div>
+          <button name="indexButton" id="J" onclick="getLibrosFromIndex(this.id)"  class="link">J</button>
+          <div >|</div>
+          <button name="indexButton" id="K" onclick="getLibrosFromIndex(this.id)"  class="link">K</button>
+          <div >|</div>
+          <button name="indexButton" id="L" onclick="getLibrosFromIndex(this.id)"  class="link">L</button>
+          <div >|</div>
+          <button name="indexButton" id="M" onclick="getLibrosFromIndex(this.id)"  class="link">M</button>
+          <div >|</div>
+          <button name="indexButton" id="N" onclick="getLibrosFromIndex(this.id)"  class="link">N</button>
+          <div >|</div>
+          <button name="indexButton" id="O" onclick="getLibrosFromIndex(this.id)"  class="link">O</button>
+          <div >|</div>
+          <button name="indexButton" id="P" onclick="getLibrosFromIndex(this.id)"  class="link">P</button>
+          <div >|</div>
+          <button name="indexButton" id="Q" onclick="getLibrosFromIndex(this.id)"  class="link">Q</button>
+          <div >|</div>
+          <button name="indexButton" id="R" onclick="getLibrosFromIndex(this.id)"  class="link">R</button>
+          <div >|</div>
+          <button name="indexButton" id="S" onclick="getLibrosFromIndex(this.id)"  class="link">S</button>
+          <div >|</div>
+          <button name="indexButton" id="T" onclick="getLibrosFromIndex(this.id)"  class="link">T</button>
+          <div >|</div>
+          <button name="indexButton" id="U" onclick="getLibrosFromIndex(this.id)"  class="link">U</button>
+          <div >|</div>
+          <button name="indexButton" id="V" onclick="getLibrosFromIndex(this.id)"  class="link">V</button>
+          <div >|</div>
+          <button name="indexButton" id="W" onclick="getLibrosFromIndex(this.id)"  class="link">W</button>
+          <div >|</div>
+          <button name="indexButton" id="X" onclick="getLibrosFromIndex(this.id)"  class="link">X</button>
+          <div >|</div>
+          <button name="indexButton" id="Y" onclick="getLibrosFromIndex(this.id)"  class="link">Y</button>
+          <div >|</div>
+          <button name="indexButton" id="Z" onclick="getLibrosFromIndex(this.id)"  class="link">Z</button>
+          <div >|</div>
+        </div>
         <!--Contenedor de libros-->
         <div style="margin: 1%;">
           <div id="bookContainer"  style="margin: 1%;">
@@ -169,7 +223,23 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  
+  <script>
+    function init(){
+      fetch('https://www.etnassoft.com/api/v1/get/?book_title_index=a&num_items=25')
+    .then((response) => {
+    return response.json();
+    }).then((response) => {
+        resetView();
+        document.getElementById('indice').hidden = false;
+        currentBooks = [];
+                for(let i in response){
+                    insertBook(response[i]);
+                }
+                insertBookNodes(currentBooks);
+    });
+    }
+    init();
+  </script>
   <!-- Menu Toggle Script -->
   <script>
     

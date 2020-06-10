@@ -72,3 +72,4 @@ body {
   display: flex;
 }
 
+button.link { background:none;border:none; }
