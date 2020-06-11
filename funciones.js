@@ -186,16 +186,27 @@ function sortJSON(data, key, orden) {
 En caso de hacer modificaciones a como se ven los libros , 
 solo hay que cambiar este codigo y todos se veran igual*/
 function createBookNode(title, url, cover){
+    var div = document.createElement('div');
+   var titulo=document.createElement('h5');
+    titulo.setAttribute("style","font-size: 20px; margin: 5px;");
+    titulo.innerHTML=title;
     var nodo = document.createElement('a');
     nodo.setAttribute("name","libro");
     nodo.setAttribute("title",title);
     nodo.setAttribute("href", url);
+    
     var img = document.createElement('img');
+   
     img.setAttribute("src", cover);
     img.setAttribute("alt",title);
-    img.setAttribute("class","minibox imagenLibro")
+    img.setAttribute("class","minibox imagenLibro");
     nodo.appendChild(img);
-    return nodo;
+    div.setAttribute('style',' display: inline;');
+     div.appendChild(nodo);
+     
+    
+    
+    return div;
 }
 
 
