@@ -20,15 +20,22 @@
 </head>
 
 <body style="background-color: #ff9966;">
-
+  <style>
+    body {
+      background-image: url('http://significadosdelossuenos.net/wp-content/uploads/2016/11/So%C3%B1ar-con-libros.png');
+      background-repeat: no-repeat;
+      background-attachment: fixed;  
+      background-size: cover;
+    }
+    </style>
   <div class="d-flex" id="wrapper">
 
     <!-- Sidebar -->
     <div class="border-right bg-dark" id="sidebar-wrapper">
-      <div class="sidebar-heading text-light"><img  src="logo.png" style="width:80%;margin-left: 9%;"></div></img>
+      <div class="sidebar-heading text-light"><a title="BookApp" href="index.html"><img src="logo.png" alt="BookApp" /></a></div>
       <div class="list-group list-group-flush">
         <a href="./index.html" class="list-group-item list-group-item-action bg-dark text-light border-bottom border-top">Inicio</a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light border-bottom border-top">Busqueda avanzada</a>
+ 
         <a href="./listasDestacadas.html" class="list-group-item list-group-item-action bg-dark text-light border-bottom border-top">Top 10 mas leidos</a>
         
       </div>
@@ -74,7 +81,7 @@
       </nav>
 
       <div class="container-fluid" >
-        <h1 id="mainTitle" class="mt-4" style="text-align: center;">Los libros mas leidos</h1>
+        <h1 id="mainTitle" class="titulos" style="text-align: center;">Los libros mas leidos</h1>
         <!---->
         
         <div id="orderFilter" hidden="true" class="container border-top border-bottom">

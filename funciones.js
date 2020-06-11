@@ -203,8 +203,6 @@ function createBookNode(title, url, cover){
     nodo.appendChild(img);
     div.setAttribute('style',' display: inline;');
      div.appendChild(nodo);
-     
-    
     
     return div;
 }
