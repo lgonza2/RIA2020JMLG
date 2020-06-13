@@ -71,10 +71,10 @@
               </div>
             </li>
             <li class="nav-item active">
-              <input id="search" class="form-control"  value="" type="search" placeholder="Búsqueda..." aria-label="Búsqueda...">
+              <input id="search" class="form-control"  value="" type="search" placeholder="Titulos" aria-label="Titulos" onkeypress="">
             </li>
               <li class="nav-item active">
-              <button  class="btn btn-primary" style="margin-top: 1%;" onclick="buscarLibro(document.getElementById('search').value)" >Buscar</button>
+              <button  class="btn btn-primary" style="margin-top: 1%;" onclick="getBooksByTitle()" >Buscar</button>
               </li>
           </ul>
         </div>
@@ -85,9 +85,9 @@
         <h1 id="mainTitle" class="titulos" style="text-align: center;">Todos los libros a tu alcance</h1>
         <!---->
         
-        <div id="orderFilter" hidden="true" class="container border-top border-bottom">
+        <div id="orderFilter" hidden="true" class="container" >
           <div id="leftThing" >
-          <h5 class="mt-2">Ordenar por</h5>
+          <h5 class="mt-2" style="padding-left: 2%;">Ordenar por</h5>
           <div class="row" style="padding: 1%;">
             <div class="col-sm-6">
               <select title="Ordena los libros por el atributo seleccionado" id="orderFilterValue" class="form-control"  onchange="orderBooks()">
@@ -126,15 +126,6 @@
                 </select>
               </div>
             </div>
-            <div class="row" style="padding: 1%;">
-              <div class="col-sm-6">
-                <label for="laguageFilter" class="control-label">Autor</label>
-                <select title="Muestra solo los libros del autor seleccionado" disabled="true" onchange="filterBooksByAuthor(this.value)" label aria-label="Idioma" id="authorFilter" class="form-control"  onchange="">
-                  <option value="" ></option>
-                </select>
-              </div>
-            </div>
-          
            </div>
         </div>
         <!---->
@@ -193,7 +184,8 @@
           <div ></div>
         </div>
         <!--Contenedor de libros-->
-        <div style="margin: 1%;">
+        <div id="bookWrapper" style="margin: 1%;">
+          <h2 id="searchResults" class="titulos"></h2>
           <div id="bookContainer"  style="margin: 1%;">
               
 
@@ -211,8 +203,7 @@
     <div class="footerContainer" >
         <div class="custom-block f-right" >
           <img src="https://www.bookshop.com.uy/media/pagos/oca.png" style="height: 25px;margin-right: 5px;"> 
-          <img src="https://www.bookshop.com.uy/media/pagos/visa.png" style="height: 24px;margin-right: 5px;"> 
-          <img src="https://www.bookshop.com.uy/media/pagos/visa.png" style="height: 31px;margin-right: 5px;">
+          <img src="https://www.bookshop.com.uy/media/pagos/visa.png" style="height: 24px;margin-right: 5px;">
           <img src="https://www.bookshop.com.uy/media/pagos/cabal.png" style="height: 36px;margin-right: 5px;">
           <img src="https://www.bookshop.com.uy/media/pagos/hsbc.png" style="height: 37px;margin-right: 5px;">
           <img src="https://www.bookshop.com.uy/media/pagos/ebrou.png" style="height: 32px;margin-right: 5px;"> 

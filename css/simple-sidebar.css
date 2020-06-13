@@ -60,10 +60,12 @@ body {
 
 #rightThing {
   width: 50%;
+  background-color: wheat;
 }
 
 #leftThing {
   width: 50%;
+  background-color: wheat;
 }
 
 #orderFilter {

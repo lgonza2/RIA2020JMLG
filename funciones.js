@@ -121,6 +121,7 @@ function resetView(){
          var firstNode = bookContainer.firstChild;
          bookContainer.removeChild(firstNode);
      }
+
 }
 
 //Funcion para mostrar el spinner cuando esta cargando la informacion de la API
@@ -359,6 +360,28 @@ function getLibrosFromIndex(index){
                     indexButtons[i].disabled = false;
                 }
     });
+}
+
+function getBooksByTitle(){
+    var search = document.getElementById('search').value;
+    var query = 'https://www.etnassoft.com/api/v1/get/?book_title="' + search  + '"&?num_items=25';
+    resetView();
+    showSpinner();
+    fetch(query)
+    .then((response) => {
+    return response.json();
+    }).then((response) => {
+        console.log(response);
+        resetView();
+        currentBooks = [];
+                for(let i in response){
+                    insertBook(response[i]);
+                }
+                insertBookNodes(currentBooks);
+    });
+}
+
+function checkKeyPressed(event){
 }
 
 

@@ -71,10 +71,10 @@
               </div>
             </li>
             <li class="nav-item active">
-              <input id="search" class="form-control"  value="" type="search" placeholder="Búsqueda..." aria-label="Búsqueda...">
+              <input id="search" class="form-control"  value="" type="search" placeholder="Titulos" aria-label="Titulos">
             </li>
               <li class="nav-item active">
-              <button  class="btn btn-primary" style="margin-top: 1%;" onclick="buscarLibro(document.getElementById('search').value)" >Buscar</button>
+              <button  class="btn btn-primary" style="margin-top: 1%;" onclick="getBooksByTitle()" >Buscar</button>
               </li>
           </ul>
         </div>
@@ -84,7 +84,7 @@
         <h1 id="mainTitle" class="titulos" style="text-align: center;">Los libros mas leidos</h1>
         <!---->
         
-        <div id="orderFilter" hidden="true" class="container border-top border-bottom">
+        <div id="orderFilter" hidden="true" class="container ">
           <div id="leftThing" >
           <h5 class="mt-2">Ordenar por</h5>
           <div class="row" style="padding: 1%;">
@@ -125,14 +125,6 @@
                 </select>
               </div>
             </div>
-            <div class="row" style="padding: 1%;">
-              <div class="col-sm-6">
-                <label for="laguageFilter" class="control-label">Autor</label>
-                <select title="Muestra solo los libros del autor seleccionado" disabled="true" onchange="filterBooksByAuthor(this.value)" label aria-label="Idioma" id="authorFilter" class="form-control"  onchange="">
-                  <option value="" ></option>
-                </select>
-              </div>
-            </div>
           
            </div>
         </div>
@@ -153,23 +145,28 @@
 
   </div>
   <!-- /#wrapper -->
-  <div class="footer-bottom" style="background: white">
-    <div class="footerContainer" style="margin-left: 2%;">
+  <div class="footer-bottom" >
+    <div class="footerContainer" >
         <div class="custom-block f-right" >
           <img src="https://www.bookshop.com.uy/media/pagos/oca.png" style="height: 25px;margin-right: 5px;"> 
-          <img src="https://www.bookshop.com.uy/media/pagos/visa.png" style="height: 24px;margin-right: 5px;"> 
-          <img src="https://www.bookshop.com.uy/media/pagos/visa.png" style="height: 31px;margin-right: 5px;">
+          <img src="https://www.bookshop.com.uy/media/pagos/visa.png" style="height: 24px;margin-right: 5px;">
           <img src="https://www.bookshop.com.uy/media/pagos/cabal.png" style="height: 36px;margin-right: 5px;">
           <img src="https://www.bookshop.com.uy/media/pagos/hsbc.png" style="height: 37px;margin-right: 5px;">
           <img src="https://www.bookshop.com.uy/media/pagos/ebrou.png" style="height: 32px;margin-right: 5px;"> 
           <img src="https://www.bookshop.com.uy/media/pagos/abitab.png" style="height: 37px;"> 
         </div>               
         <style type="text/css">
-          .footer-bottom .footerContainer:before {
-          position: absolute;
-          bottom: 0;
-          display: none;
-          }
+          .footer-bottom .footerContainer {
+        
+   position: relative;
+   left: 0;
+   bottom: 0%;
+   width: 100%;
+   background-color: white;
+   height: 80px;
+   color: white;
+   text-align: center;
+}
         </style>
         <address style="color: #4d4d4d">© 2020 Bookapp. Todos los derechos reservados.</address>
       </div>
@@ -205,8 +202,7 @@
             .then((res) =>{
                 return res.json();
                 
-            }).then((res)=> {
-            
+            }).then((res)=> {           
             var categoryTitle = document.createElement('h3');
             categoryTitle.innerHTML = categories[catIndex];
             console.log(categories[catIndex]);
