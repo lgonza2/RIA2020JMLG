@@ -193,11 +193,16 @@ function createBookNode(title, url, cover){
     titulo.innerHTML=title;
     var nodo = document.createElement('a');
     nodo.setAttribute("name","libro");
-    nodo.setAttribute("title",title);
+   
+    
+    
+   
     nodo.setAttribute("href", url);
     
     var img = document.createElement('img');
-   
+    img.setAttribute("data-toggle","tooltip");
+    img.setAttribute("data-placement","top");
+    img.setAttribute ("title",title);
     img.setAttribute("src", cover);
     img.setAttribute("alt",title);
     img.setAttribute("class","minibox imagenLibro");
@@ -205,6 +210,10 @@ function createBookNode(title, url, cover){
     div.setAttribute('style',' display: inline;');
      div.appendChild(nodo);
     
+     $(document).ready(function(){
+       $('[data-toggle="tooltip"]').tooltip();
+     });
+     
     return div;
 }
 
