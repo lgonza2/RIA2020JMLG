@@ -355,10 +355,11 @@ function getLibrosFromIndex(index){
                 for(let i in response){
                     insertBook(response[i]);
                 }
-                insertBookNodes(currentBooks);
                 for ( var i in indexButtons){
                     indexButtons[i].disabled = false;
                 }
+                insertBookNodes(currentBooks);
+             
     });
 }
 
