@@ -215,14 +215,21 @@
                     //Crear los div de los libros
                     var nodo = document.createElement('a');
                     nodo.setAttribute("name","libro");
-                    nodo.setAttribute("title",res[i].title);
+                    
                     nodo.setAttribute("href", res[i].url);
                     var img = document.createElement('img');
+                    img.setAttribute ("title",res[i].title);
+                    img.setAttribute("data-toggle","tooltip");
+                    img.setAttribute("data-placement","top");
                     img.setAttribute("src", res[i].cover);
                     img.setAttribute("alt",res[i].title);
                     img.setAttribute("class","minibox imagenLibro")
                     nodo.appendChild(img);
                     divCategoria.appendChild(nodo);
+                       
+                    $(document).ready(function(){
+                      $('[data-toggle="tooltip"]').tooltip();
+                    });
                 }
                 document.getElementById('bookContainer').appendChild(divCategoria);
                 
